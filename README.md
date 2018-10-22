@@ -1,12 +1,13 @@
-# __GB-AWWWARDS__
-[GB-AWWWARDS](www.gbawwwards.herokuapp.com)
- This is  an application that allows users to post their projects and other people with different profiles are able to rate whatever projects are posted.
-> A user will be able to post an image of their project, add a description to that project and lastly a link that redirects a user to the actual project
+# __JIRANI__
+[JIRANI](www.jirani-hood.com)
+Jirani is a swahili word meaning Neighbor.
+ This is  an application that allows users to create a neighbourhood, join a neighbourhood, leave a neighbourhood and add business an also edit and delete profiles
+> A user will be able to post an image of their profile, add a bio to that profile.
 
 
 ### __prerequisites__
-The app runs on django==1.11 and works with both bootstrap4
-and runs currently on >= python3.6 ubuntu 16.04
+The app runs on django==1.11 and works with both bootstrap3
+and runs currently on >= python3.5 ubuntu 16.04
 
 ### __installation__
 For the application to work you need some basic installations.
@@ -29,7 +30,9 @@ For the application to work you need some basic installations.
 
 > ***__programming is prone to errors therfore make sure ou install everything required in the requirements.txt and you do this by typing *python3.6 pip install -r requirements.txt *__***
 
-3.
+3.  ***Error:***  - Field Error. ***soln:*** make sure you migrate your check the required fields in the models.py ***python3.6 manage.py makemigrations*** and then ***python3.6 manage.py migrate***
+
+
 ### __Running Tests__
 > After passing in diferrent functions in this application, one has to write tests
 > some of the functions include:
@@ -37,9 +40,10 @@ For the application to work you need some basic installations.
 
 ### __Technologies Used__
 1. posgresql
+2. pysopg2
 2. django==1.11
-3. python3.6
-4. bootstrap4
+3. python3.5
+4. bootstrap3
 5. javascript
 6. uploadcare
 
@@ -50,6 +54,7 @@ For the application to work you need some basic installations.
 ### __Authors__
 ***fh5co ASUMANI***
 * For anyproblem please contact at asumanifh5co@gmail.com
+
 
 ### __Licence__
 This project is licensed under the MIT License
