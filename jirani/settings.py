@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+    'pyuploadcare.dj',
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -116,6 +116,13 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+
+UPLOADCARE = {
+    'pub_key': 'd8fa4fb3c9f849277d8d',
+    'secret': '05042802f54b4c616599',
+}
 
 
 # Static files (CSS, JavaScript, Images)
