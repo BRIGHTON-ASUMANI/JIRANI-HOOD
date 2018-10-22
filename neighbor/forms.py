@@ -61,3 +61,9 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].widget.attrs['placeholder'] = 'confirm password'
         self.fields['password2'].label = ''
         self.fields['password2'].help_text = ""
+
+
+class Profile(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = '__all__'
