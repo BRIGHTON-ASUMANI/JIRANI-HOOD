@@ -68,7 +68,7 @@ class SignUpForm(UserCreationForm):
 class NeighbourhoodForm(forms.ModelForm):
     class Meta:
         model = Neighbourhood
-        exclude = ['user, occupants_count']
+        exclude = ['user','occupants_count']
 
 class ProfileForm(forms.ModelForm):
     class Meta:
