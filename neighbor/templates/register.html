@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% load bootstrap3 %}
+{% load static %}
+{% block content %}
+ <div class="col-lg-6 col-lg-offset-3 text-center">
+<h3 class="text-center">register</h>
+<form method='POST'>
+{% csrf_token %}
+
+
+{{ form.as_p }}
+<input type="submit" value='Register' class="btn btn-secondary">
+</form>
+</div>
+{% endblock %}

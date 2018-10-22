@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 from django import forms
+from .models import Neighbourhood, Profile, Business
 
 class EditProfileForm(UserCreationForm):
     password1 = forms.CharField(label='', widget = forms.TextInput(attrs={'type':'hidden'}))
@@ -8,6 +9,7 @@ class EditProfileForm(UserCreationForm):
     email = forms.EmailField(label='',widget = forms.TextInput(attrs={'class':'form-control', 'placeholder':'email address'}))
     first_name = forms.CharField(label='',max_length=100, widget = forms.TextInput(attrs={'class':'form-control' , 'placeholder':'first name'}))
     last_name = forms.CharField(label='',max_length=100, widget = forms.TextInput(attrs={'class':'form-control', 'placeholder':'last name'}))
+
     # fav_color = forms.CharField(max_length=100)
     class Meta:
         model = User
@@ -63,7 +65,25 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].help_text = ""
 
 
-class Profile(forms.ModelForm):
+class NeighbourhoodForm(forms.ModelForm):
     class Meta:
-        model = Profile
+        model = Neighbourhood
+        fields= '__all__'
+
+# class CommentForm(forms.ModelForm):
+#     class Meta:
+#         model = Review
+#         fields = ( 'review',)
+
+class BusinessForm(forms.ModelForm):
+    class Meta:
+        model = Business
         exclude = '__all__'
+
+# class RateForm(forms.ModelForm):
+#     class Meta:
+#         model = Review
+#         exclude = ['user','project']
+#         widgets = {
+#             'tags': forms.CheckboxSelectMultiple(),
+#         }

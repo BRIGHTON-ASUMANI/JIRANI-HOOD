@@ -1,0 +1,38 @@
+{% load bootstrap3 %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>New Project</title>
+  {{form.media}}
+
+{% block styles %}
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+ {% bootstrap_css %}
+ {% endblock %}
+
+</head>
+{% include "navbar.html" %}
+
+  <div class="col-lg-6 col-lg-offset-3 text-center" style='margin-top:20px;'>
+   <div class="card-header">
+<marquee direction='left' behavior="alternate" scrollamount="3"><h2><i class="em em-european_post_office"></i>!!Post something!!<i class="em em-european_post_office"></i></h2></marquee>
+<div class="card-body">
+  <form  action="{%url 'new_project'%}" method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+
+    {% bootstrap_form form%}
+    <input type="submit" class="btn btn-primary btn-lg" value="Post">
+  </form>
+
+   {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %} {% endblock %}
+
+</div>
+</div>
+</div>

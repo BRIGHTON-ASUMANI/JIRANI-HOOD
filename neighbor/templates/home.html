@@ -1,0 +1,118 @@
+{% extends 'base.html'%}
+{% load bootstrap3 %}
+{% load static %}
+{% block content %}
+
+
+
+  <!-- Services Start -->
+  <section id="services" class="services-section section-space-padding" s>
+      <div class="container">
+         <div class="row">
+              <div class="col-sm-12">
+                  <div class="section-title"  style='color:#000000;'>
+                      <h2 style='margin:0;padding:0;'>Posted projects.</h2>
+                        <div class="divider dark">
+					   <i class="icon-drop" style='color:#00ff41;' ></i>
+					 </div>
+           <form role="search" action="{% url 'search' %}">
+     <input type="text" placeholder="Type a project title" name="title">
+     <button type="submit"><i class="fa fa-search"></i></button>
+   </form>        </div>
+              </div>
+          </div>
+
+
+<div class="row margin-top-30"  data-toggle="modal" data-target="#{{pic.id}}">
+  {% if project %}
+{% for pic in project %}
+        <div class="col-md-4 col-sm-6">
+				<div class="services-detail">
+					<i class="fa fa-desktop color-1" aria-hidden="true"></i>
+          <h3 class="color-1"  data-toggle="modal" data-target="#{{landing_page.id}}">{{pic.title}}</h3>
+
+  <!-- Modal -->
+  <div class="modal fade " id="{{pic.id}}" role="dialog" style="color:#00ff41; ">
+    <div class="modal-dialog modal-lg" >
+
+      <!-- Modal content-->
+      <div class="modal-content"  style="background-color: #2c2326">
+        <div class="modal-header">
+          <button type="button" class="close"  style="color:#00ff41;" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{pic.title}} ^ posted by
+          {% if profile.user.id == pic.user.id %}
+          <a href="{% url 'dump' %}">{{pic.user.username}}</a>
+          {% else %}
+          <a href="{% url 'dump' pk=pic.user.id %}">{{pic.user.username}}</a>
+          {% endif %}</h3></h4>
+        </div>
+        <div class="modal-body">
+<div>
+<a href='{{pic.link}}'>
+
+    <img src="{{pic.landing_page.cdn_url}}" class="img-responsive img-rounded" data-toggle="modal" data-target="#{{landing_page.id}}" alt="{{pic.title}}" class="image" style="width:100%;height:70%;">
+
+    <div class="middle">
+      <div class="text"><a href='{{pic.link}}'>view project</a></div>
+  </div>
+<!-- <img src="{{pic.landing_page.cdn_url}}" class="img-responsive img-rounded" data-toggle="modal" data-target="#{{landing_page.id}}" alt="{{pic.title}}" style="width:90%;height:70%;"> -->
+</a>
+</hr>
+</hr>
+<p>{{pi}}</p>
+<p>{{pic.description}}</p>
+</div>
+<div>
+
+</div>
+</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+				</div>
+			</div>
+      {% endfor %}
+      {% else %}
+      <p>Nothing has been posted for now</p>
+      {% endif %}
+
+            </div>
+        </div>
+    </section>
+
+
+         <footer class="footer-section">
+             <div class="container">
+                 <div class="row">
+
+                 <div class="col-md-12">
+                   <ul class="social-icon margin-bottom-30">
+                      <li><a href="#" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                      <li><a href="#" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                      <li><a href="#" target="_blank" class="instagram"><i class="fab fa-instagram"></i></i></a></li>
+                      <li><a href="#" target="_blank" class="dribbble"><i class="fab fa-dribbble"></i></a></li>
+                    </ul>
+               </div>
+
+                  <div class="col-md-12 uipasta-credit">
+                     <p style='color: #00ff41;'>Design By brighton </a>
+                     </div>
+
+                  </div>
+             </div>
+         </footer>
+         <!-- Footer End -->
+
+
+         <!-- Back to Top Start -->
+         <a href="#" class="scroll-to-top"><i class="icon-arrow-up-circle"></i></a>
+         <!-- Back to Top End -->
+
+
+{% endblock %}
