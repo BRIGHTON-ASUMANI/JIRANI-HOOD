@@ -123,7 +123,7 @@ fieldset {
 }
 
 .divider > i {
-	color: #00ff41;
+	color: #000000;
 	font-size: 21px;
 }
 
@@ -207,8 +207,8 @@ fieldset {
 }
 
 .button-style-dark {
-	border: 3px solid #000000;
-	color: #000000;
+	border: 3px solid #FFFFFF;
+	color: #FFFFFF;
 }
 
 
@@ -268,12 +268,12 @@ tr > td:nth-child(2) {
     padding-top: 28px;
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
-    color: #00ff41;
+    color: #000000;
 }
 
 .logo a {
     display: block;
-    color: #00ff41;
+    color: #000000;
     letter-spacing: 6px;
     font-weight: 600;
     font-size: 14px;
@@ -282,7 +282,7 @@ tr > td:nth-child(2) {
 }
 
 .navigation-menu .navbar-nav li a {
-    color: #000000;
+    color: #FFFFFF;
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 1px;
@@ -294,7 +294,7 @@ tr > td:nth-child(2) {
 
 .navigation-menu .navbar-nav li a:hover {
     background: none;
-    color: #00ff41;
+    color: #000000;
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
 }
@@ -314,7 +314,7 @@ tr > td:nth-child(2) {
 .navigation-background {
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
-    background: #00ff41;
+    background: #000000;
 }
 
 .navigation-background .logo {
@@ -324,7 +324,7 @@ tr > td:nth-child(2) {
 }
 
 .navigation-background .logo a {
-	color: #00ff41;
+	color: #000000;
 }
 
 .navigation-background .navigation-menu .navbar-nav li a {
@@ -354,7 +354,7 @@ tr > td:nth-child(2) {
 
 .services-section .services-detail {
     border-radius: 100%;
-    background-color: #000000;
+    background-color: #FFFFFF;
     box-shadow: 0px 1px 2px 0px rgb(152,251,152);
     transition: all 0.3s ease-in-out;
     position: relative;
@@ -488,10 +488,10 @@ tr > td:nth-child(2) {
 /* Footer */
 
 .footer-section {
-    background-color: #000000;
+    background-color: #FFFFFF;
 	background-repeat: repeat;
     padding: 80px 0px;
-    color: #00ff41;;
+    color: #000000;;
 }
 
 .footer-section p {
@@ -774,7 +774,7 @@ tr > td:nth-child(2) {
 /* Colors */
 
 .color-1 {
-	color: #00ff41;
+	color: #000000;
 }
 
 

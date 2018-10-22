@@ -206,7 +206,7 @@ def search(request):
 
     if 'title' in request.GET and request.GET["title"]:
         search_term = request.GET.get("title")
-        searched_title = Neighbourhood.objects.filter(title=search_term)
+        searched_title = Neighbourhood.objects.filter(neighbourhood_name=search_term)
         # message = f"{search_title}"
         return render(request, 'search.html',{"title": searched_title})
 

@@ -4,14 +4,14 @@
 {% block content %}
 
 <center><h1>search results</h1></center>
-{% if title %}
+{% if neighbourhood_name %}
   <!-- Services Start -->
   <section id="services" class="services-section section-space-padding" s>
       <div class="container">
          <div class="row">
               <div class="col-sm-12">
                   <div class="section-title"  style='color:#000000;'>
-                      <h2 style='margin:0;padding:0;'>Posted projects.</h2>
+                      <h2 style='margin:0;padding:0;'>JIRANI HOODS</h2>
                         <div class="divider dark">
 					   <i class="icon-drop" style='color:#00ff41;' ></i>
 					 </div>
@@ -21,11 +21,11 @@
 
 
 <div class="row margin-top-30"  data-toggle="modal" data-target="#{{pic.id}}">
-{% for pic in title %}
+{% for pic in neighbourhood_name %}
         <div class="col-md-4 col-sm-6">
 				<div class="services-detail">
 					<i class="fa fa-desktop color-1" aria-hidden="true"></i>
-          <h3 class="color-1"  data-toggle="modal" data-target="#{{pic.id}}">{{pic.title}}</h3>
+          <h3 class="color-1"  data-toggle="modal" data-target="#{{pic.id}}">{{pic.neighbourhood_name}}</h3>
 
   <!-- Modal -->
   <div class="modal fade " id="{{pic.id}}" role="dialog" style="color:#00ff41; ">
@@ -35,7 +35,7 @@
       <div class="modal-content"  style="background-color: #2c2326">
         <div class="modal-header">
           <button type="button" class="close"  style="color:#00ff41;" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">{{pic.title}}</h4>
+          <h4 class="modal-title">{{pic.neighbourhood_name}}</h4>
         </div>
         <div class="modal-body">
 <div>

@@ -13,6 +13,7 @@ class Neighbourhood(models.Model):
     neighbourhood_location = models.CharField(max_length=40)
     neighbourhood_name = models.CharField(max_length=40)
     occupants_count = models.IntegerField(default=0)
+    area = ImageField(manual_crop='')
 
 
     def get_absolute_url(self):
