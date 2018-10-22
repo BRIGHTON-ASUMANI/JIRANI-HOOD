@@ -23,11 +23,26 @@
           </div>
 
 
-<div class="row margin-top-30"  data-toggle="modal" data-target="#{{pic.id}}">
+
+<div class="row margin-top-30">
   {% if neighbour %}
 {% for pic in neighbour %}
+<section id="photos">
+  <div class="container">
+     <div class="row">
+<figure>
+  <p><img src="{{pic.area.cdn_url}}" height="100" class='img-responsive'
+    alt="neighbourhood">
+  <figcaption><ul>
+<li>{{pic.neighbourhood_name}}</li>
+<li>{{pic.neighbourhood_location}}</li>
 
 
+</ul></figcaption>
+</figure>
+</div>
+</div>
+</section>
 				</div>
 			</div>
       {% endfor %}
@@ -35,7 +50,7 @@
       <p>Nothing has been posted for now</p>
       {% endif %}
 
-            
+
     </section>
 
 

@@ -1,6 +1,6 @@
 # __JIRANI__
 [JIRANI](www.jirani-hood.com)
-Jirani is a swahili word meaning Neighbor.
+is a swahili word meaning Neighbor.
  This is  an application that allows users to create a neighbourhood, join a neighbourhood, leave a neighbourhood and add business an also edit and delete profiles
 > A user will be able to post an image of their profile, add a bio to that profile.
 
@@ -40,7 +40,7 @@ For the application to work you need some basic installations.
 
 ### __Technologies Used__
 1. posgresql
-2. pysopg2
+2. pyscopg2
 2. django==1.11
 3. python3.5
 4. bootstrap3
