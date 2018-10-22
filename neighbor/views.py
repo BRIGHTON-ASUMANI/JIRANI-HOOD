@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib import messages
-from .forms import SignUpForm, EditProfileForm, ProjectForm, ProfileForm
-from .models import Project, Profile
+from .forms import SignUpForm, EditProfileForm, NeighbourhoodForm, BusinessForm, ProfileForm
+from .models import Neighbourhood, Business, Profile
 from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.views.generic.edit import UpdateView,DeleteView
@@ -11,11 +11,10 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import View
 # Create your views here.
 def home(request):
-    profile = Profile.get_all()
-    project=Project.objects.filter()
+    business = Business.get_all()
+    neighbor=Neighbourhood.objects.filter()
     current_user= request.user
     # commented = CommentForm()
-    # rates = Review.get_all()
     context = {"project":project,"current_user":current_user,"profile":profile}
     return render(request, 'home.html', context )
 
