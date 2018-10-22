@@ -25,7 +25,7 @@
 
 <div class="row margin-top-30"  data-toggle="modal" data-target="#{{pic.id}}">
   {% if project %}
-{% for pic in neighbourhood %}
+{% for pic in project %}
         <div class="col-md-4 col-sm-6">
 				<div class="services-detail">
 					<i class="fa fa-desktop color-1" aria-hidden="true"></i>
@@ -85,29 +85,6 @@
             </div>
         </div>
     </section>
-
-    {% if project %}
-  {% for pic in business %}
-
-{{neighbourhood_location}}
-  {{  neighbourhood_name }}
-  {{  occupants_count}}
-
-
-
-
-        {% endfor %}
-        {% else %}
-        <p>Nothing has been posted for now</p>
-        {% endif %}
-
-
-
-
-
-
-
-
 
 
          <footer class="footer-section">

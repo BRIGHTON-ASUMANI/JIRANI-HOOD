@@ -8,6 +8,15 @@ __pycache__/
 virtual/
 *pyc
 
+
+
+
+neighbor/static/css/plugin.css*
+neighbor/static/js/plugin.js*
+
+neighbor/static/js/jquery.min.js*
+
+
 # Distribution / packaging
 .Python
 build/
