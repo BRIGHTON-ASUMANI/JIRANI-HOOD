@@ -22,7 +22,7 @@
    <div class="card-header">
 <marquee direction='left' behavior="alternate" scrollamount="3"><h2><i class="em em-european_post_office"></i>!!Post something!!<i class="em em-european_post_office"></i></h2></marquee>
 <div class="card-body">
-  <form  action="{%url 'new_project'%}" method="POST" enctype="multipart/form-data">
+  <form  action="{%url 'new_neighbour'%}" method="POST" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}

@@ -27,7 +27,7 @@ def new_neighbour(request):
         form = NeighbourhoodForm(request.POST, request.FILES)
         if form.is_valid():
             neighbour = form.save(commit=False)
-            neighbor.user = current_user
+            neighbour.user = current_user
             neighbour.save()
         return redirect('home')
 
