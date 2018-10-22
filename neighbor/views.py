@@ -11,39 +11,40 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import View
 # Create your views here.
 def home(request):
-    business = Business.get_all()
-    neighbor=Neighbourhood.objects.filter()
+    profile = Profile.get_all()
+    neighbour=Neighbourhood.objects.filter()
     current_user= request.user
-    # commented = CommentForm()
-    context = {"project":project,"current_user":current_user,"profile":profile}
+    business =Business.objects.filter(user=request.user.id)
+
+    context = {"neighbour":neighbour,"current_user":current_user,"profile":profile,"business":business}
     return render(request, 'home.html', context )
 
 
 @login_required(login_url='/login')
-def new_project(request):
+def new_neighbour(request):
     current_user = request.user
     if request.method == 'POST':
-        form = ProjectForm(request.POST, request.FILES)
+        form = NeighbourhoodForm(request.POST, request.FILES)
         if form.is_valid():
-            project = form.save(commit=False)
-            project.user = current_user
-            project.save()
+            neighbour = form.save(commit=False)
+            neighbor.user = current_user
+            neighbour.save()
         return redirect('home')
 
     else:
-        form = ProjectForm()
+        form = NeighbourhoodForm()
     return render(request, 'image.html', {"form": form})
 
 
 @login_required(login_url='/login')
 def comment(request,id):
-    upload = Project.objects.get(id=id)
+    upload = Neighbourhood.objects.get(id=id)
     if request.method == 'POST':
         comm=CommentForm(request.POST)
         if comm.is_valid():
             comment=comm.save(commit=False)
             comment.user = request.user
-            comment.project=upload
+            comment.neighbour=upload
             comment.save()
             return redirect('home')
     return redirect('home')
@@ -53,9 +54,9 @@ def comment(request,id):
 @login_required(login_url='/login')
 def profile(request):
     profile =Profile.objects.filter(user=request.user.id)
-    project =Project.objects.filter(user=request.user.id)
+    neighbour =Neighbourhood.objects.filter(user=request.user.id)
     # commented = CommentForm()
-    return render(request, 'profile.html', {"profile": profile, "project": project})
+    return render(request, 'profile.html', {"profile": profile, "neighbour": neighbour})
 
 
 
@@ -97,12 +98,12 @@ def logout_user(request):
 
 # def rates(request,review_id):
 #     current_user = request.user
-#     rates = get_object_or_404(Project,pk=review_id)
+#     rates = get_object_or_404(Neighbourhood,pk=review_id)
 #     if request.method == 'POST':
 #         form = RateForm(request.POST, request.FILES)
 #         if form.is_valid():
 #             new_rates= form.save(commit=False)
-#             new_rates.project = rates
+#             new_rates.neighbour = rates
 #             new_rates.user = current_user
 #             new_rates.save()
 #         return redirect('home')
@@ -144,9 +145,9 @@ def change_password(request):
 @login_required(login_url='/login')
 def dump(request,pk):
     profile =Profile.objects.filter(user=request.user.id)
-    project =Project.objects.filter(user=request.user.id)
+    neighbour =Neighbourhood.objects.filter(user=request.user.id)
     # commented = CommentForm()
-    return render(request,'dump.html',{"profile": profile, "project": project})
+    return render(request,'dump.html',{"profile": profile, "neighbour": neighbour})
 
 @login_required( login_url='/login' )
 def create(request):
@@ -181,8 +182,8 @@ def edit(request):
 
 
 class AlbumUpdate(UpdateView):
-   model=Project
-   template_name = 'edit-project.html'
+   model=Neighbourhood
+   template_name = 'edit-neighbour.html'
    fields = ['title','landing_page','description', 'link']
 
 class ProfileUpdate(UpdateView):
@@ -192,7 +193,7 @@ class ProfileUpdate(UpdateView):
 
 
 class AlbumDelete(DeleteView):
-   model=Project
+   model=Neighbourhood
    success_url = reverse_lazy('profile')
 
 class ProfileDelete(DeleteView):
@@ -205,7 +206,7 @@ def search(request):
 
     if 'title' in request.GET and request.GET["title"]:
         search_term = request.GET.get("title")
-        searched_title = Project.objects.filter(title=search_term)
+        searched_title = Neighbourhood.objects.filter(title=search_term)
         # message = f"{search_title}"
         return render(request, 'search.html',{"title": searched_title})
 

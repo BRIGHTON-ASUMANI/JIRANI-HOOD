@@ -76,7 +76,7 @@ class Business(models.Model):
         return self.business_name
 
     @classmethod
-    def all_projects(cls):
+    def all_business(cls):
         business = cls.objects.order_by('business_name')
         return business
 
