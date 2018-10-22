@@ -73,17 +73,9 @@ class NeighbourhoodForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ['user','neighbourhood']
+        exclude = ['admin','neighbourhood']
 
 class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
         exclude = '__all__'
-
-# class RateForm(forms.ModelForm):
-#     class Meta:
-#         model = Review
-#         exclude = ['user','project']
-#         widgets = {
-#             'tags': forms.CheckboxSelectMultiple(),
-#         }

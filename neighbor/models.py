@@ -9,10 +9,11 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 
 class Neighbourhood(models.Model):
-    user = models.ForeignKey(User, related_name="poster", on_delete=models.CASCADE)
+    admin = models.ForeignKey(User, related_name="poster", on_delete=models.CASCADE)
     neighbourhood_location = models.CharField(max_length=40)
     neighbourhood_name = models.CharField(max_length=40)
     occupants_count = models.IntegerField(default=0)
+
 
     def get_absolute_url(self):
         return reverse('dump', kwargs={'pk':self.pk})
