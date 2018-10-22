@@ -68,7 +68,7 @@ class Business(models.Model):
     user = models.ForeignKey(User, related_name="business_user", on_delete=models.CASCADE)
     business_name = models.CharField(max_length=40, blank=True, null=True)
     neighbourhood = models.ForeignKey(Neighbourhood, related_name="neighbor", on_delete=models.CASCADE)
-    business_email = models.EmailField()
+    business_email = models.CharField(max_length=40, blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse('dump', kwargs={'pk':self.pk})
