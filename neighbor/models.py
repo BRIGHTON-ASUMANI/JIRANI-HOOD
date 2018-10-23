@@ -77,8 +77,8 @@ class Profile(models.Model):
 class Business(models.Model):
     user = models.ForeignKey(User, related_name="bbb", on_delete=models.CASCADE)
     neighbourhood = models.ForeignKey(Neighbourhood, related_name="neigh", on_delete=models.CASCADE)
-    business_name = models.CharField()
-    business_emails = models.CharField()
+    business_name = models.CharField(max_length=40)
+    business_emails = models.CharField(max_length=40)
     # image = ImageField(manual_crop='')
 
     def get_absolute_url(self):
@@ -97,6 +97,11 @@ class Business(models.Model):
     @classmethod
     def get_business(cls, id):
         business = cls.objects.get(id=id)
+        return business
+
+    @classmethod
+    def search_by_name(cls,search_term):
+        business=cls.objects.filter(business_name__icontains=search_term)
         return business
 
 class Profile(models.Model):

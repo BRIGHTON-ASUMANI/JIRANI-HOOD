@@ -2,7 +2,13 @@
 {% load bootstrap3 %}
 {% load static %}
 {% block content %}
+
 <div class="container">
+  <center><form role="search" style="margin-bottom:15px;" action="{% url 'search_business' %}">
+  <input type="text" placeholder="Type business" name="business">
+  <button type="submit"><i class="fa fa-search"></i></button>
+  </form> <a href="{% url 'new_business' neighbour.id%}"> <button>add business</button></a></center>
+
   <div class="row" >
    <div class="col-md-6" style='border:1px solid black; margin:3px'>
 
@@ -14,18 +20,17 @@
 
   </div>
  <div class="col-md-6" style='border:1px solid black; margin:3px'>
-<a href="{% url 'new_business' neighbour.id%}">add business</a>
 
+<h1>businesses</h1>
  {% if biz %}
    {% for business in biz %}
 
-      <p>Name: {{business.business_name}}</p>
-      <p>contact: {{business.business_emails}}</p>
+      <h1>Name: {{business.business_name}}</h1>
+      <h1>contact: {{business.business_emails}}</p>
 
   </div>
 {% endfor %}
 
-<a href="{% url 'new_business' neighbour.id%}">add business</a>
 {%endif%}
 </div>
   </div>

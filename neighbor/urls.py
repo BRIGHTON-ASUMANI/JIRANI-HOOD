@@ -22,6 +22,7 @@ urlpatterns=[
     url( r'profile/(?P<pk>[0-9]+)/delete/$' , views.ProfileDelete.as_view( ) , name='profile-delete' ) ,
     url( r'^create/$' , views.create , name='create' ),
     url(r'^search/$',views.search , name='search'),
+    url(r'^search_business/$',views.search , name='search_business'),
     url(r'^all/(?P<neighbourhoud_id>\d+)/$', views.all, name='all'),
 
 ]
