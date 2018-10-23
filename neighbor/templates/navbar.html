@@ -26,11 +26,6 @@
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav navbar-right" >
                                         {% if user.is_authenticated %}
-                                        
-                                        <form role="search" action="{% url 'search' %}">
-                                      <input type="text" placeholder="Type a project title" name="title">
-                                      <button type="submit"><i class="fa fa-search"></i></button>
-                                      </form>
 
                                         <li class="active"><a class="smoth-scroll" href="/" style='color: #000000;'>Home <div class="ripple-wrapper"></div></a>
                                         </li>
@@ -48,6 +43,11 @@
                                         </li>
                                         <li><a class="smoth-scroll" href="{%url 'new_neighbour'%}" style='color: #000000;'>Create Neighbourhood</a>
                                         </li>
+
+                                        <form role="search" action="{% url 'search' %}">
+                                      <input type="text" placeholder="Type neighbourhood" name="title">
+                                      <button type="submit"><i class="fa fa-search"></i></button>
+                                      </form>
                                           {% endif %}
                                     </ul>
                                 </div>
