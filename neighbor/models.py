@@ -77,8 +77,8 @@ class Profile(models.Model):
 class Business(models.Model):
     user = models.ForeignKey(User, related_name="bbb", on_delete=models.CASCADE)
     neighbourhood = models.ForeignKey(Neighbourhood, related_name="neigh", on_delete=models.CASCADE)
-    business_name = models.TextField()
-    business_emails = models.TextField()
+    business_name = models.CharField()
+    business_emails = models.CharField()
     # image = ImageField(manual_crop='')
 
     def get_absolute_url(self):
