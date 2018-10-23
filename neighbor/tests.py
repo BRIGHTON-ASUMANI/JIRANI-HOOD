@@ -6,16 +6,16 @@ from django.contrib.auth.models import User
 
 class UserTest(TestCase):
     def setUp(self):
-        self.user=User(username='kabagemark',first_name='mark',last_name='kabage',email='kabagemark@gmail.com')
+        self.user=User(username='kabagebrighton',first_name='brighton',last_name='kabage',email='kabagebrighton@gmail.com')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.user,User))
 
     def test_data(self):
         self.assertTrue(self.user.username,"kabagemarl")
-        self.assertTrue(self.user.first_name,"mark")
+        self.assertTrue(self.user.first_name,"brighton")
         self.assertTrue(self.user.last_name,'kabage')
-        self.assertTrue(self.user.email,'kabagemark@gmail.com')
+        self.assertTrue(self.user.email,'kabagebrighton@gmail.com')
 
     def test_save(self):
         self.user.save()
@@ -33,7 +33,7 @@ class UserTest(TestCase):
 
 class NeighbourhoodTest(TestCase):
     def setUp(self):
-        self.user=User(username='kabagemark',first_name='mark',last_name='kabage',email='kabagemark@gmail.com')
+        self.user=User(username='kabagebrighton',first_name='brighton',last_name='kabage',email='kabagebrighton@gmail.com')
         self.user.save()
         self.new_Neighbourhood=Neighbourhood( Occupants_count="6",name='Umoja',location='Kenya')
         self.new_Neighbourhood = Neighbourhood( Occupants_count="6",name='Umoja',location='Kenya')
@@ -73,16 +73,16 @@ class NeighbourhoodTest(TestCase):
 
 class ProfileTest(TestCase):
     def setUp(self):
-        self.new_profile=Profile(name ="mark",bio='this is my bio',location="Kenya",profile_photo="https://www.google.com")
+        self.new_profile=Profile(name ="brighton",bio='this is my bio',location="Kenya",picture="https://www.google.com")
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_profile,Profile))
 
     def test_data(self):
         self.assertTrue(self.new_profile.bio,"this is my bio")
-        self.assertTrue(self.new_profile.name,"mark")
+        self.assertTrue(self.new_profile.name,"brighton")
         self.assertTrue(self.new_profile.location,"Kenya")
-        self.assertTrue(self.new_profile.profile_photo,"https://www.google.com")
+        self.assertTrue(self.new_profile.picture,"https://www.google.com")
 
     def test_save(self):
         self.new_profile.save()
