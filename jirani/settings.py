@@ -123,18 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-UPLOADCARE = {
-    'pub_key': 'd8fa4fb3c9f849277d8d',
-    'secret': '05042802f54b4c616599',
-}
-
-
-UPLOADCARE = {
-    'PUB_KEY': config('PUB_KEY'),
-    'SECRET':  config('SECRET'),
-}
-
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -160,7 +148,19 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+UPLOADCARE = {
+    'PUB_KEY': config('PUB_KEY'),
+    'SECRET':  config('SECRET'),
+}
+
+
+
+UPLOADCARE = {
+    'pub_key': 'd8fa4fb3c9f849277d8d',
+    'secret': '05042802f54b4c616599',
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
