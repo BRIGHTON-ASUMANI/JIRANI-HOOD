@@ -6,16 +6,16 @@ from django.contrib.auth.models import User
 
 class UserTest(TestCase):
     def setUp(self):
-        self.user=User(username='kabagebrighton',first_name='brighton',last_name='kabage',email='kabagebrighton@gmail.com')
+        self.user=User(username='asumanibrighton',first_name='brighton',last_name='asumani',email='asumanibrighton@gmail.com')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.user,User))
 
     def test_data(self):
-        self.assertTrue(self.user.username,"kabagemarl")
+        self.assertTrue(self.user.username,"asumani")
         self.assertTrue(self.user.first_name,"brighton")
-        self.assertTrue(self.user.last_name,'kabage')
-        self.assertTrue(self.user.email,'kabagebrighton@gmail.com')
+        self.assertTrue(self.user.last_name,'asumani')
+        self.assertTrue(self.user.email,'asumanibrighton@gmail.com')
 
     def test_save(self):
         self.user.save()
@@ -33,10 +33,10 @@ class UserTest(TestCase):
 
 class NeighbourhoodTest(TestCase):
     def setUp(self):
-        self.user=User(username='kabagebrighton',first_name='brighton',last_name='kabage',email='kabagebrighton@gmail.com')
+        self.user=User(username='asumanibrighton',first_name='brighton',last_name='asumani',email='asumanibrighton@gmail.com')
         self.user.save()
-        self.new_Neighbourhood=Neighbourhood( Occupants_count="6",name='Umoja',location='Kenya')
-        self.new_Neighbourhood = Neighbourhood( Occupants_count="6",name='Umoja',location='Kenya')
+        self.new_Neighbourhood=Neighbourhood( Occupants_count="6",name='Moringa',location='Kenya')
+        self.new_Neighbourhood = Neighbourhood( Occupants_count="6",name='Moringa',location='Kenya')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_Neighbourhood,Neighbourhood))
@@ -57,16 +57,9 @@ class NeighbourhoodTest(TestCase):
 
     def test_update_post(self):
         self.new_Neighbourhood.save()
-        self.update_Neighbourhood = Neighbourhood.objects.filter(name='Umoja').update(name='kawangware')
+        self.update_Neighbourhood = Neighbourhood.objects.filter(name='Moringa').update(name='kawangware')
         self.updated_Neighbourhood = Neighbourhood.objects.get(name='kawangware')
         self.assertTrue(self.updated_Neighbourhood.name,'kawangware')
-
-
-
-
-
-
-
 
 
 
