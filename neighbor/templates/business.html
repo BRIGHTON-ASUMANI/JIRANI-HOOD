@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>New Business</title>
+
   {{form.media}}
 
 {% block styles %}
@@ -16,17 +17,18 @@
  {% endblock %}
 
 </head>
+{{neighbourhood.id}}
 {% include "navbar.html" %}
 
   <div class="col-lg-6 col-lg-offset-3 text-center" style='margin-top:20px;'>
    <div class="card-header">
 <marquee direction='left' behavior="alternate" scrollamount="3"><h2><i class="em em-european_post_office"></i><i class="em em-european_post_office"></i><i class="em em-european_post_office"></i>!!Create A Business!!<i class="em em-european_post_office"></i><i class="em em-european_post_office"></i><i class="em em-european_post_office"></i></h2></marquee>
 <div class="card-body">
-  <form  action="/business/{{neighbourhood.id}}" method="POST" enctype="multipart/form-data">
+  <form  action="/business/{{neighbourhood.id}}/" method="POST" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}
-    <input type="submit" class="btn btn-primary btn-lg" value="Post">
+    <input type="submit" class="btn btn-primary btn-lg" value="POST">
   </form>
 
    {% block scripts %}

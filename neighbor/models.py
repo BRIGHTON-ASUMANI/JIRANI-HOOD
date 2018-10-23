@@ -33,8 +33,15 @@ class Neighbourhood(models.Model):
     def delete_neighbourhood(self):
         return self.delete()
 
+    @classmethod
+    def search_by_name(cls,search_term):
+        neighbourhood=cls.objects.filter(neighbourhood_name__icontains=search_term)
+        return neighbourhood
+
     def __str__(self):
         return self.neighbourhood_name
+
+
 
 
 
@@ -72,6 +79,7 @@ class Business(models.Model):
     neighbourhood = models.ForeignKey(Neighbourhood, related_name="neigh", on_delete=models.CASCADE)
     business_name = models.TextField()
     business_emails = models.TextField()
+    # image = ImageField(manual_crop='')
 
     def get_absolute_url(self):
         return reverse('dump', kwargs={'pk':self.pk})

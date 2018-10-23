@@ -48,21 +48,21 @@ def new_neighbour(request):
 
 @login_required(login_url='/login')
 def new_business(request, pk):
-    neighbourhood = get_object_or_404(Neighbourhood,pk=pk)
+    neighbourhood = get_object_or_404(Neighbourhood,id=pk)
     current_user = request.user
     if request.method == 'POST':
         form = BusinessForm(request.POST, request.FILES)
         if form.is_valid():
             business = form.save(commit=False)
             business.user = current_user
+            print('x')
             business.neighbourhood = neighbourhood
             business.save()
-        print('sjjdsjhdsjhdsjhdj')
         return redirect('all', neighbourhoud_id=neighbourhood.id)
 
     else:
         form = BusinessForm()
-    return render(request, 'business.html', {"form": form, "neighbourhood ":neighbourhood })
+    return render(request, 'business.html', {"form": form, "neighbourhood":neighbourhood })
 
 
 
@@ -220,10 +220,10 @@ class ProfileDelete(DeleteView):
 
 def search(request):
 
-    if 'neighbour' in request.GET and request.GET["neighbour"]:
-        search_term = request.GET.get("neighbour")
-        searched_neighbor = Neighbourhood.objects.filter(neighbourhood_name=search_term)
-        
+    if 'neighbourhood' in request.GET and request.GET["neighbourhood"]:
+        search_term = request.GET.get("neighbourhood")
+        searched_neighbor = Neighbourhood.search_by_name(search_term)
+        # message=f'{search_term}'
         return render(request, 'search.html',{"neighbour": searched_neighbor})
 
     else:

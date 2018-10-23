@@ -3,12 +3,17 @@
 {% load static %}
 {% block content %}
 
+<center><form role="search" style="margin-bottom:15px;" action="{% url 'search' %}">
+<input type="text" placeholder="Type neighbourhood" name="neighbourhood">
+<button type="submit"><i class="fa fa-search"></i></button>
+</form></center>
+
 <div class="container">
   <div class="row" >
  {% if neighbour %}
  {% for pic in neighbour %}
 
- <div class="col-md-4" style='border:1px solid black; margin-right:2px'>
+ <div class="col-md-3" style='border:1px solid black; margin-right:50px'>
 
 
 
