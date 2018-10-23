@@ -229,17 +229,3 @@ def search(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
-
-
-
-def search_business(request):
-
-    if 'business' in request.GET and request.GET["business"]:
-        search_term = request.GET.get("business")
-        searched_neighbor = Business.search_by_name(search_term)
-        # message=f'{search_term}'
-        return render(request, 'search.html',{"business": searched_neighbor})
-
-    else:
-        message = "You haven't searched for any term"
-        return render(request, 'search_business.html',{"message":message})

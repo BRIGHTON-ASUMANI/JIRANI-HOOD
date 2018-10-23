@@ -42,10 +42,6 @@ class Neighbourhood(models.Model):
         return self.neighbourhood_name
 
 
-
-
-
-
 class Profile(models.Model):
     user = models.ForeignKey(User, related_name="profilir", on_delete=models.CASCADE)
     picture = ImageField(manual_crop='')

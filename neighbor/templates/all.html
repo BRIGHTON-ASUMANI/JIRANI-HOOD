@@ -4,14 +4,10 @@
 {% block content %}
 
 <div class="container">
-  <center><form role="search" style="margin-bottom:15px;" action="{% url 'search_business' %}">
-  <input type="text" placeholder="Type business" name="business">
-  <button type="submit"><i class="fa fa-search"></i></button>
-  </form> <a href="{% url 'new_business' neighbour.id%}"> <button>add business</button></a></center>
+  <center> <a href="{% url 'new_business' neighbour.id%}" > <button style="margin:40px;">add business</button></a></center>
 
   <div class="row" >
-   <div class="col-md-6" style='border:1px solid black; margin:3px'>
-
+   <div class="col-md-6" style='border:1px solid black;'>
 
       <p>Name: {{neighbour.neighbourhood_name}}</p>
       <p>Location: {{neighbour.neighbourhood_location}}</p>
@@ -19,15 +15,16 @@
         alt="neighbourhood">
 
   </div>
- <div class="col-md-6" style='border:1px solid black; margin:3px'>
+ <div class="col-md-6" style='border:1px solid black;'>
 
-<h1>businesses</h1>
+<h1><u>businesse</u></h1>
+</hr>
  {% if biz %}
    {% for business in biz %}
-
+</hr>
       <h1>Name: {{business.business_name}}</h1>
-      <h1>contact: {{business.business_emails}}</p>
-
+      <h1>Email: {{business.business_emails}}</p>
+</hr>
   </div>
 {% endfor %}
 
