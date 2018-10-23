@@ -13,7 +13,7 @@
  {% if neighbour %}
  {% for pic in neighbour %}
 
- <div class="col-md-3" style='border:1px solid black; margin-right:50px'>
+ <div class="col-md-3" style='border:1px solid black; margin:20px'>
 
 
 
@@ -22,6 +22,7 @@
    <!-- <figcaption> -->
  <h3>Name: {{pic.neighbourhood_name}}</h3>
  <h3>Location: {{pic.neighbourhood_location}}</h3>
+<h3>Population: {{pic.occupants_count}}</h3>
 <a href="{%url 'all' pic.id %}"><button style='align:right;margin-bottom:5px'>join neighbourhood</button></a>
 
 

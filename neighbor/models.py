@@ -41,6 +41,16 @@ class Neighbourhood(models.Model):
     def __str__(self):
         return self.neighbourhood_name
 
+    @classmethod
+    def get_all(cls):
+        all_objects = Profile.objects.all()
+        return all_objects
+
+
+    @classmethod
+    def update_caption(cls,current_value,new_value):
+        fetched_object = NeighbourHood.objects.filter(name=current_value).update(name=new_value)
+
 
 class Profile(models.Model):
     user = models.ForeignKey(User, related_name="profilir", on_delete=models.CASCADE)
@@ -53,6 +63,20 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return reverse('dump', kwargs={'pk':self.pk})
 
+
+    @classmethod
+    def get_all(cls):
+        all_objects = Profile.objects.all()
+        return all_objects
+
+    @classmethod
+    def search_by_username(cls,search_term):
+        profile = cls.objects.filter(user__name__icontains=search_term)
+        return profile
+
+    @classmethod
+    def update_caption(cls,current_value,new_value):
+        fetched_object = Profile.objects.filter(name=current_value).update(name=new_value)
 
     @classmethod
     def get_all(cls):

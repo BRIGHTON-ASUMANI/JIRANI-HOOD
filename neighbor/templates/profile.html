@@ -10,7 +10,7 @@
 <section class="home-section">
     <div class="container">
         <div class="row">
-
+<center><h1>{{user.username}}'s Profile</h1>
              <div class="col-sm-offset-2 col-md-4 col-sm-6 margin-left-setting">
                 <div class="margin-top-150">
 
@@ -81,46 +81,55 @@
 
 
 <center><h1>My Neighbourhood</h1></center>
+<center><form role="search" style="margin-bottom:15px;" action="{% url 'search' %}">
+<input type="text" placeholder="Type neighbourhood" name="neighbourhood">
+<button type="submit"><i class="fa fa-search"></i></button>
+</form></center>
+
 <div class="container">
-  <div class="row">
+  <div class="row" >
  {% if neighbour %}
  {% for pic in neighbour %}
 
- <div class="col-md-4">
+ <div class="col-md-3" style='border:1px solid black; margin:20px'>
 
 
 
    <img src="{{pic.area.cdn_url}}"  class='img-responsive'
-     alt="neighbourhood">
+     alt="neighbourhood" style='margin-top:10px;'>
    <!-- <figcaption> -->
- <p>{{pic.neighbourhood_name}}</p>
- <p>{{pic.neighbourhood_location}}</p>
-
-
- </ul></figcaption>
- <!-- Delete Album -->
-   <form action="{% url 'album-delete' pic.id %}" method="post" style="display: inline;">
-       {% csrf_token %}
-       <input type="hidden" name="project_id" value="{{ pic.id }}" />
-       <button type="submit" class="btn btn-danger btn-lg">
-           <span class="glyphicon glyphicon-trash"></span>
-       </button>
-   </form>
-   <!--edit-album-->
-    <form action="{% url 'album-update' pic.id %}" method="post" style="display: inline;">
-  {% csrf_token %}
-    <input type="hidden" name="project_id" value="{{ pic.id }}" />
-    <button type="submit" class="btn btn-primary btn-lg">
-        <span class="glyphicon glyphicon-edit"></span>
-    </button>
+ <h3>Name: {{pic.neighbourhood_name}}</h3>
+ <h3>Location: {{pic.neighbourhood_location}}</h3>
+<h3>Population: {{pic.occupants_count}}</h3>
+<!-- Delete Album -->
+  <form action="{% url 'album-delete' pic.id %}" method="post" style="display: inline;">
+      {% csrf_token %}
+      <input type="hidden" name="project_id" value="{{ pic.id }}" />
+      <button type="submit" class="btn btn-danger btn-lg">
+          <span class="glyphicon glyphicon-trash"></span>
+      </button>
   </form>
+  <!--edit-album-->
+   <form action="{% url 'album-update' pic.id %}" method="post" style="display: inline;">
+ {% csrf_token %}
+   <input type="hidden" name="project_id" value="{{ pic.id }}" />
+   <button type="submit" class="btn btn-primary btn-lg">
+       <span class="glyphicon glyphicon-edit"></span>
+   </button>
+ </form>
  </div>
    {% endfor %}
  </div>
 </div>
+
+
+
       {% else %}
       <p>Nothing has been posted for now</p>
       {% endif %}
+
+
+
 
          <footer class="footer-section">
              <div class="container">
@@ -136,7 +145,7 @@
                </div>
 
                   <div class="col-md-12 uipasta-credit">
-                     <p style='color: #00ff41;'>Design By brighton </a>
+                     <p style='color:#000000'>Design By brighton </a>
                      </div>
 
                   </div>
