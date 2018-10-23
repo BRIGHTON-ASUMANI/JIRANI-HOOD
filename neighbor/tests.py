@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Profile,NeighbourHood,Business
+from .models import Profile,Neighbourhood,Business
 from django.contrib.auth.models import User
 # Create your tests here.
 
@@ -31,35 +31,35 @@ class UserTest(TestCase):
 
 
 
-class NeighbourHoodTest(TestCase):
+class NeighbourhoodTest(TestCase):
     def setUp(self):
         self.user=User(username='kabagemark',first_name='mark',last_name='kabage',email='kabagemark@gmail.com')
         self.user.save()
-        self.new_NeighbourHood=NeighbourHood( Occupants_count="6",name='Umoja',location='Kenya')
-        self.new_NeighbourHood = NeighbourHood( Occupants_count="6",name='Umoja',location='Kenya')
+        self.new_Neighbourhood=Neighbourhood( Occupants_count="6",name='Umoja',location='Kenya')
+        self.new_Neighbourhood = Neighbourhood( Occupants_count="6",name='Umoja',location='Kenya')
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.new_NeighbourHood,NeighbourHood))
+        self.assertTrue(isinstance(self.new_Neighbourhood,Neighbourhood))
 
     def test_data(self):
-        self.assertTrue(self.new_NeighbourHood.location,'Kenya')
+        self.assertTrue(self.new_Neighbourhood.location,'Kenya')
 
     def test_save(self):
-        self.new_NeighbourHood.save()
-        Hood = NeighbourHood.objects.all()
-        self.assertTrue(len(Hood)>0)
+        self.new_Neighbourhood.save()
+        hood = Neighbourhood.objects.all()
+        self.assertTrue(len(hood)>0)
 
     def test_delete(self):
-        Hood = NeighbourHood.objects.filter(id=1)
-        Hood.delete()
-        Hood = NeighbourHood.objects.all()
-        self.assertTrue(len(Hood)==0)
+        hood = Neighbourhood.objects.filter(id=1)
+        hood.delete()
+        hood = Neighbourhood.objects.all()
+        self.assertTrue(len(hood)==0)
 
     def test_update_post(self):
-        self.new_NeighbourHood.save()
-        self.update_NeighbourHood = NeighbourHood.objects.filter(name='Umoja').update(name='kawangware')
-        self.updated_NeighbourHood = NeighbourHood.objects.get(name='kawangware')
-        self.assertTrue(self.updated_NeighbourHood.name,'kawangware')
+        self.new_Neighbourhood.save()
+        self.update_Neighbourhood = Neighbourhood.objects.filter(name='Umoja').update(name='kawangware')
+        self.updated_Neighbourhood = Neighbourhood.objects.get(name='kawangware')
+        self.assertTrue(self.updated_Neighbourhood.name,'kawangware')
 
 
 
