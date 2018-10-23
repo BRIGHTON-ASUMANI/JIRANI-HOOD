@@ -2,56 +2,36 @@
 {% load bootstrap3 %}
 {% load static %}
 {% block content %}
+<div class="container">
+  <div class="row" >
+ {% if neighbour %}
+ {% for pic in neighbour %}
+
+ <div class="col-md-4" style='border:1px solid black; margin:10px'>
 
 
 
-  <!-- Services Start -->
-  <section id="photos" class="services-section section-space-padding" s>
-      <div class="container">
-         <div class="row">
-              <div class="col-sm-12">
-                  <div class="section-title"  style='color:#000000;'>
-                      <h2 style='margin:0;padding:0;'>JIRANI HOODS</h2>
-                        <div class="divider dark">
-					   <i class="icon-drop" style='color:#00ff41;' ></i>
-					 </div>
-           <form role="search" action="{% url 'search' %}">
-     <input type="text" placeholder="Type a project title" name="title">
-     <button type="submit"><i class="fa fa-search"></i></button>
-   </form>        </div>
-              </div>
-          </div>
+   <img src="{{pic.area.cdn_url}}"  class='img-responsive'
+     alt="neighbourhood" style='margin-top:10px;'>
+   <!-- <figcaption> -->
+ <p>{{pic.neighbourhood_name}}</p>
+ <p>{{pic.neighbourhood_location}}</p>
 
 
+ </ul></figcaption>
 
-<div class="row margin-top-30">
-  {% if neighbour %}
-{% for pic in neighbour %}
-<section id="photos">
-  <div class="container">
-     <div class="row">
-<figure>
-  <p><img src="{{pic.area.cdn_url}}" height="100" class='img-responsive'
-    alt="neighbourhood">
-  <figcaption><ul>
-<li>{{pic.neighbourhood_name}}</li>
-<li>{{pic.neighbourhood_location}}</li>
-
-
-</ul></figcaption>
-</figure>
+ </div>
+   {% endfor %}
+ </div>
 </div>
-</div>
-</section>
-				</div>
-			</div>
-      {% endfor %}
+
+
+
       {% else %}
       <p>Nothing has been posted for now</p>
       {% endif %}
 
 
-    </section>
 
 
          <footer class="footer-section">

@@ -38,14 +38,18 @@ class Neighbourhood(models.Model):
 
 
 
+
 class Profile(models.Model):
-    user = models.ForeignKey(User, related_name="user", on_delete=models.CASCADE)
-    neighbourhood = models.ForeignKey(Neighbourhood, related_name="poster", on_delete=models.CASCADE)
-    picture = ImageField(manual_crop='')
-    user_email = models.CharField(max_length=40)
+    user = models.ForeignKey(User, related_name="profilir", on_delete=models.CASCADE)
+    picture = ImageField()
+    contact = models.BigIntegerField()
+    bio = models.TextField()
+    email = models.CharField(max_length=40, blank=True, null=True)
+    neighbourhood = models.ForeignKey(Neighbourhood, related_name="pos", on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return reverse('dump', kwargs={'pk':self.pk})
+
 
     @classmethod
     def get_all(cls):
@@ -62,7 +66,6 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
-
 
 class Business(models.Model):
     user = models.ForeignKey(User, related_name="business_user", on_delete=models.CASCADE)
@@ -87,3 +90,29 @@ class Business(models.Model):
     def get_business(cls, id):
         business = cls.objects.get(id=id)
         return business
+
+
+class Profile(models.Model):
+    user = models.ForeignKey(User, related_name="profiler", on_delete=models.CASCADE)
+    picture = ImageField()
+    contact = models.BigIntegerField()
+    bio = models.TextField()
+
+    def get_absolute_url(self):
+        return reverse('dump', kwargs={'pk':self.pk})
+
+    @classmethod
+    def get_all(cls):
+        profiles = Profile.objects.all()
+        return profiles
+
+    @classmethod
+    def save_profile(self):
+        return self.save()
+
+    @classmethod
+    def delete_profile(self):
+        return self.delete()
+
+    def __str__(self):
+        return self.user.username

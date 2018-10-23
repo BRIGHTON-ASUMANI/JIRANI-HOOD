@@ -157,6 +157,7 @@ def create(request):
         if form.is_valid( ):
             update=form.save( commit=False )
             update.user=current_user
+            update.neighbourhood=current_user
             update.save( )
             return redirect( 'profile' )
     else:
@@ -184,7 +185,7 @@ def edit(request):
 class AlbumUpdate(UpdateView):
    model=Neighbourhood
    template_name = 'edit-neighbour.html'
-   fields = ['title','landing_page','description', 'link']
+   fields = ['neighbourhood_name','neighbourhood_location','area']
 
 class ProfileUpdate(UpdateView):
    model= Profile
