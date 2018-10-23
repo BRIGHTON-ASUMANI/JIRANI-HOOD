@@ -78,4 +78,4 @@ class ProfileForm(forms.ModelForm):
 class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
-        exclude = '__all__'
+        exclude = ['user','neighbourhood']

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib import messages
@@ -19,6 +19,16 @@ def home(request):
     context = {"neighbour":neighbour,"current_user":current_user,"profile":profile,"business":business}
     return render(request, 'home.html', context )
 
+# Create your views here.
+def all(request, neighbourhoud_id):
+    neighbour=Neighbourhood.objects.get(pk = neighbourhoud_id)
+    current_user= request.user
+    business=BusinessForm()
+    biz =Business.objects.filter(neighbourhood=neighbourhoud_id)
+    context = {"neighbour":neighbour,"current_user":current_user,"profile":profile,"business":business,"biz":biz}
+    return render(request, 'all.html', context )
+
+
 
 @login_required(login_url='/login')
 def new_neighbour(request):
@@ -37,34 +47,37 @@ def new_neighbour(request):
 
 
 @login_required(login_url='/login')
-def new_business(request):
+def new_business(request, pk):
+    neighbourhood = get_object_or_404(Neighbourhood,pk=pk)
     current_user = request.user
     if request.method == 'POST':
         form = BusinessForm(request.POST, request.FILES)
         if form.is_valid():
             business = form.save(commit=False)
             business.user = current_user
+            business.neighbourhood = neighbourhood
             business.save()
-        return redirect('home')
+        print('sjjdsjhdsjhdsjhdj')
+        return redirect('all', neighbourhoud_id=neighbourhood.id)
 
     else:
         form = BusinessForm()
-    return render(request, 'business.html', {"form": form})
+    return render(request, 'business.html', {"form": form, "neighbourhood ":neighbourhood })
 
 
-@login_required(login_url='/login')
-def comment(request,id):
-    upload = Neighbourhood.objects.get(id=id)
-    if request.method == 'POST':
-        comm=CommentForm(request.POST)
-        if comm.is_valid():
-            comment=comm.save(commit=False)
-            comment.user = request.user
-            comment.neighbour=upload
-            comment.save()
-            return redirect('home')
-    return redirect('home')
-
+# @login_required(login_url='/login')
+# def business(request,id):
+#     upload = Neighbourhood.objects.get(id=id)
+#     if request.method == 'POST':
+#         business=BusinessForm(request.POST)
+#         if business.is_valid():
+#             business=business.save(commit=False)
+#             business.user = request.user
+#             business.neighbour=upload
+#             business.save()
+#             return redirect('all')
+#     return redirect('all')
+#
 
 
 @login_required(login_url='/login')

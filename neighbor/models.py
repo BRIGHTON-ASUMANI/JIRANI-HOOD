@@ -44,7 +44,7 @@ class Profile(models.Model):
     picture = ImageField()
     contact = models.BigIntegerField()
     bio = models.TextField()
-    email = models.CharField(max_length=40, blank=True, null=True)
+    email = models.EmailField()
     neighbourhood = models.ForeignKey(Neighbourhood, related_name="pos", on_delete=models.CASCADE)
 
     def get_absolute_url(self):
@@ -68,10 +68,11 @@ class Profile(models.Model):
         return self.user.username
 
 class Business(models.Model):
-    user = models.ForeignKey(User, related_name="business_user", on_delete=models.CASCADE)
-    business_name = models.CharField(max_length=40, blank=True, null=True)
-    neighbourhood = models.ForeignKey(Neighbourhood, related_name="neighbor", on_delete=models.CASCADE)
-    business_email = models.CharField(max_length=40, blank=True, null=True)
+    user = models.ForeignKey(User, related_name="bbb", on_delete=models.CASCADE)
+    neighbourhood = models.ForeignKey(Neighbourhood, related_name="neigh", on_delete=models.CASCADE)
+    business_name = models.TextField()
+    biz = ImageField()
+    business_emails = models.EmailField()
 
     def get_absolute_url(self):
         return reverse('dump', kwargs={'pk':self.pk})
@@ -90,7 +91,6 @@ class Business(models.Model):
     def get_business(cls, id):
         business = cls.objects.get(id=id)
         return business
-
 
 class Profile(models.Model):
     user = models.ForeignKey(User, related_name="profiler", on_delete=models.CASCADE)

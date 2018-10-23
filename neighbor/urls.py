@@ -13,8 +13,7 @@ urlpatterns=[
     url('edit/',views.edit, name='edit'),
     url('change_password/',views.change_password, name='change_password'),
     url(r'^post/$', views.new_neighbour, name='new_neighbour'),
-    url(r'^business/$', views.new_business, name='new_business'),
-    url(r'^comments/(\d+)', views.comment, name='comments'),
+    url(r'^business/(?P<pk>\d+)/$',views.new_business,name='new_business'),
     url( r'^profile/$' , views.profile , name='profile' ),
     url( r'pro/(?P<pk>[0-9]+)/$' , views.dump, name='dump' ),
     url( r'project/(?P<pk>[0-9]+)/$' , views.AlbumUpdate.as_view( ) , name='album-update' ) ,
@@ -23,7 +22,7 @@ urlpatterns=[
     url( r'profile/(?P<pk>[0-9]+)/delete/$' , views.ProfileDelete.as_view( ) , name='profile-delete' ) ,
     url( r'^create/$' , views.create , name='create' ),
     url(r'^search/$',views.search , name='search'),
-    # url(r'^rates/(\d+)$', views.rates, name='rates'),
+    url(r'^all/(?P<neighbourhoud_id>\d+)/$', views.all, name='all'),
 
 ]
 if settings.DEBUG:
