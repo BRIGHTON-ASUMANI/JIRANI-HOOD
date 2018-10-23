@@ -13,6 +13,7 @@ urlpatterns=[
     url('edit/',views.edit, name='edit'),
     url('change_password/',views.change_password, name='change_password'),
     url(r'^post/$', views.new_neighbour, name='new_neighbour'),
+    url(r'^business/$', views.new_business, name='new_business'),
     url(r'^comments/(\d+)', views.comment, name='comments'),
     url( r'^profile/$' , views.profile , name='profile' ),
     url( r'pro/(?P<pk>[0-9]+)/$' , views.dump, name='dump' ),
