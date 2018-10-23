@@ -200,7 +200,7 @@ def edit(request):
 class AlbumUpdate(UpdateView):
    model=Neighbourhood
    template_name = 'edit-neighbour.html'
-   fields = ['neighbourhood_name','neighbourhood_location','area']
+   fields = ['neighbourhood_name','neighbourhood_location','area','occupants_count']
 
 class ProfileUpdate(UpdateView):
    model= Profile
