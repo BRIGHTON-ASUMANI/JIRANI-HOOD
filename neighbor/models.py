@@ -41,7 +41,7 @@ class Neighbourhood(models.Model):
 
 class Profile(models.Model):
     user = models.ForeignKey(User, related_name="profilir", on_delete=models.CASCADE)
-    picture = ImageField()
+    picture = ImageField(manual_crop='')
     contact = models.BigIntegerField()
     bio = models.TextField()
     email = models.EmailField()
@@ -71,8 +71,7 @@ class Business(models.Model):
     user = models.ForeignKey(User, related_name="bbb", on_delete=models.CASCADE)
     neighbourhood = models.ForeignKey(Neighbourhood, related_name="neigh", on_delete=models.CASCADE)
     business_name = models.TextField()
-    biz = ImageField()
-    business_emails = models.EmailField()
+    business_emails = models.TextField()
 
     def get_absolute_url(self):
         return reverse('dump', kwargs={'pk':self.pk})

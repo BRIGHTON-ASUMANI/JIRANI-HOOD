@@ -65,20 +65,6 @@ def new_business(request, pk):
     return render(request, 'business.html', {"form": form, "neighbourhood ":neighbourhood })
 
 
-# @login_required(login_url='/login')
-# def business(request,id):
-#     upload = Neighbourhood.objects.get(id=id)
-#     if request.method == 'POST':
-#         business=BusinessForm(request.POST)
-#         if business.is_valid():
-#             business=business.save(commit=False)
-#             business.user = request.user
-#             business.neighbour=upload
-#             business.save()
-#             return redirect('all')
-#     return redirect('all')
-#
-
 
 @login_required(login_url='/login')
 def profile(request):
@@ -234,11 +220,11 @@ class ProfileDelete(DeleteView):
 
 def search(request):
 
-    if 'title' in request.GET and request.GET["title"]:
-        search_term = request.GET.get("title")
-        searched_title = Neighbourhood.objects.filter(neighbourhood_name=search_term)
-        # message = f"{search_title}"
-        return render(request, 'search.html',{"title": searched_title})
+    if 'neighbour' in request.GET and request.GET["neighbour"]:
+        search_term = request.GET.get("neighbour")
+        searched_neighbor = Neighbourhood.objects.filter(neighbourhood_name=search_term)
+        
+        return render(request, 'search.html',{"neighbour": searched_neighbor})
 
     else:
         message = "You haven't searched for any term"
