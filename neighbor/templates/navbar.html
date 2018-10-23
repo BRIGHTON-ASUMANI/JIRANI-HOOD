@@ -26,6 +26,12 @@
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav navbar-right" >
                                         {% if user.is_authenticated %}
+                                        <li class="active">
+                                        <form role="search" action="{% url 'search' %}">
+                                      <input type="text" placeholder="Type a project title" name="title">
+                                      <button type="submit"><i class="fa fa-search"></i></button>
+                                      </form>
+                                        </li>
                                         <li class="active"><a class="smoth-scroll" href="/" style='color: #000000;'>Home <div class="ripple-wrapper"></div></a>
                                         </li>
                                         <li><a class="smoth-scroll" href="{% url 'profile' %}" style='color: #000000;'>Profile</a>
