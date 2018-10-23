@@ -127,6 +127,13 @@ UPLOADCARE = {
 }
 
 
+UPLOADCARE = {
+    'PUB_KEY': config('PUB_KEY'),
+    'SECRET':  config('SECRET'),
+}
+
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -151,8 +158,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Static files (CSS, JavaScript, Images)
@@ -163,6 +168,7 @@ STATIC_URL = '/static/'
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+)
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
@@ -172,11 +178,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # configuring the location for media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-UPLOADCARE = {
-    'PUB_KEY': config('PUB_KEY'),
-    'SECRET':  config('SECRET'),
-}
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
